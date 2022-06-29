@@ -10,9 +10,11 @@ class PostForm(forms.ModelForm):
             'placeholder' : 'LOUDERR!!!'
     }))
 
+    image = forms.ImageField(required=False)
+
 
 
 
     class Meta:
         model = Post 
-        fields = ['body']
+        fields = ['body', 'image']
