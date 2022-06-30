@@ -22,5 +22,7 @@ urlpatterns = [
 
     path('accounts/', include('allauth.urls')),
 
-    path('social/', include('social.urls'))
+    path('social/', include('social.urls')),
+    
+    path('uploads/', include('social.urls'))
 ]

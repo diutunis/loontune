@@ -1,36 +1,30 @@
-{% extends 'landing/base.html' %} {% load crispy_forms_tags %} 
-{% block content %}
+{% extends 'landing/base.html' %} {% load crispy_forms_tags %} {% block content %}
 <div class="container">
-    <div class="row justify-content-center mt-3">
-        <h5> POST! </h5>
-    </div>
-
-    <div class="row justify-content-center mt-3">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form | crispy }}
-            <div class="d-grid gap-2">
-                <button class="btn btn-dark mt-3">YELL!</button>
-            </div>
-
-
-        </form>
-    </div>
-
-    {% for post in post_list %}
   <div class="row justify-content-center mt-3">
-    <div class="col-md-5 col-sm-12 border-bottom"></div>
-    <p><strong>{{ post.author }} </strong> {{ post.created_on }}</p>
-
-    {% if post.image %}
-
-    <img src="{{ post.image.url }}" class="post-image" />
-
-    {% endif %}
-
-    <p>{{ post.body }}</p>
-
+    <h5>POST!</h5>
   </div>
-  {% endfor %}
+
+  <div class="row justify-content-center mt-3">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} {{ form | crispy }}
+      <div class="d-grid gap-2">
+        <button class="btn btn-dark mt-3">YELL!</button>
+      </div>
+    </form>
+  </div>
+  {% for post in post_list %}
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-5 col-sm-12 border-bottom">
+      <p><strong>{{ post.author }} </strong> {{ post.created_on }}</p></div>
+      {% if post.image %}
+
+      <img src="{{ post.image.url }}" class="post-image" />
+
+      {% endif %}
+
+      <p>{{ post.body }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock content %}
 </div>
-{% endblock content %}
