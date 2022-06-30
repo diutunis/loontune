@@ -1,6 +1,16 @@
 <nav class="navbar bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'index' %}">loudpics.com</a>
+      <a class="navbar-brand" 
+      {% if user.is_authenticated %}
+      href="{% url 'post-list' %}"
+
+      {% else %}
+      
+      href="{% url 'index' %}"
+
+      {% endif %}
+      
+      >loudpics.com</a>
       <form class="d-flex" role="search">
         <div class="input-group">
             <span class="input-group-text" id="basic-addon1">@</span>
