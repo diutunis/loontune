@@ -21,9 +21,9 @@
       <img src="{{ post.image.url }}", class="post-image" />
 
       {% endif %}
-
+     <!-- <a href="{% url 'post-detail' post.pk %}" class="stretched-link"> </a> -->
       <p>{{ post.body }}</p>
-      <a href="{% url 'post-detail' post.pk %}" class="stretched-link"> </a>
+ 
     </div>
     {% endfor %}
   </div>
