@@ -1,8 +1,9 @@
+
 from django.shortcuts import render
+
 from django.views import View
 from .models import Post
 from .forms import PostForm
-
 
 
 class PostListView(View):
@@ -35,7 +36,18 @@ class PostListView(View):
         
         }
 
-        return render(request, 'social/post_list.html', context)  
+        return render(request, 'social/post_list.html', context)
+
+class PostDetailView(View):
+    def get(self, request, pk, *args, **kwargs):
+        post = Post.objects.get(pk=pk)
+
+        context = {
+            'post': post
+        }
+
+        return render(request, 'social/post_detail.html', context)
+
 
 
 
