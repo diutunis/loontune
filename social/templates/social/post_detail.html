@@ -10,7 +10,7 @@
       <p><strong>{{ post.author }} </strong> {{ post.created_on }}</p></div>
       {% if post.image %}
 
-      <img src="" class="post-image" />
+      <img src="{{ post.image.url }}" class="post-image" />
 
       {% endif %}
 
