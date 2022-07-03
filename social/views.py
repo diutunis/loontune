@@ -2,7 +2,7 @@
 from django.shortcuts import render
 
 from django.views import View
-from .models import Post
+from .models import Post, UserProfile
 from .forms import PostForm
 
 
@@ -47,6 +47,22 @@ class PostDetailView(View):
         }
 
         return render(request, 'social/post_detail.html', context)
+
+class ProfileView(View):
+    def get(self, request, pk, *args, **kwargs):
+        profile = UserProfile.objects.get(pk=pk)
+        user = profile.user
+        posts = Post.objects.filter(author=user).order_by('-created_on')
+
+        context = {
+            'user': user,
+            'profile': profile,
+            'posts':posts
+            
+            }
+        
+        return render(request, 'social/profile.html', context)
+
 
 
 

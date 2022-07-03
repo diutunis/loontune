@@ -1,0 +1,28 @@
+{% extends 'landing/base.html' %} {% block content %}
+<div class="container">
+  <div class="row justify-content-center mt-3">
+ <a href="{% url 'post-list' %}" class="btn btn-dark">BACK</a>
+  </div>
+
+  <div class="card col-md-8 col-sm-12 border-bottom px-6 pt-4">
+
+    <img src="{{profile.picture.url}}"
+  
+  </div>
+  {% for post in post_list %}
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-5 col-sm-12 border-bottom position-relative">
+      <p><strong>{{ post.author }} </strong> {{ post.created_on }}</p></div>
+      {% if post.image %}
+
+      <img src="{{ post.image.url }}", class="post-image" />
+
+      {% endif %}
+     <!-- <a href="{% url 'post-detail' post.pk %}" class="stretched-link"> </a> -->
+      <p>{{ post.body }}</p>
+ 
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock content %}
+</div>
