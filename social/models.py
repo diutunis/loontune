@@ -19,3 +19,12 @@ class UserProfile(models.Model):
     location = models.CharField(max_length= 100, blank=True, null=True)
     picture = models.ImageField(upload_to='uploads/profile_pictures', default= 'uploads/profile_pictures/default.jpeg', blank=True)
 
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
