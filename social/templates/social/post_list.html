@@ -18,11 +18,12 @@
       <p><strong>{{ post.author }} </strong> {{ post.created_on }}</p></div>
       {% if post.image %}
 
-      <img src="{{ post.image.url }}", class="img-fluid" />
+      <img width= 500px height= 500px src="{{ post.image.url }}", class="img-fluid" />
 
       {% endif %}
      <!-- <a href="{% url 'post-detail' post.pk %}" class="stretched-link"> </a> -->
       <p>{{ post.body }}</p>
+      <a>{{ post.song }}</a>
  
     </div>
     {% endfor %}
