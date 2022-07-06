@@ -8,11 +8,11 @@ import requests
 
 
 class Post(models.Model) :
-    body = models.IntegerField(max_length='6')
+    body = models.CharField(max_length= 6)
     image = models.ImageField(upload_to='uploads/post_photos', blank=True, null=True)
     created_on = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    r = requests.get('http://theaudiodb.com/api/v1/json/523532/mvid.php?i={body}',)
+    r = requests.get('http://theaudiodb.com/api/v1/json/523532/mvid.php?i=112020',)
     song = r.json()['mvids'][0]['strMusicVid']
 
 class UserProfile(models.Model):

@@ -23,7 +23,7 @@
       {% endif %}
      <!-- <a href="{% url 'post-detail' post.pk %}" class="stretched-link"> </a> -->
       <p>{{ post.body }}</p>
-      <a>{{ post.song }}</a>
+      <a href= {{ post.song }}>{{ post.song }}</a>
  
     </div>
     {% endfor %}
