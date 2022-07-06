@@ -7,9 +7,15 @@
   <div class="card shadow-sm col-md-8 col-sm-12 border-bottom px-6 pt-4">
 
     <img src="{{ profile.picture.url }}" class="circle" width="100" height="100"/>
-    {% if profile.name %}
-    <h3 class="py-4">Name:  {{ profile.name }}</h3>
-    {% endif %} 
+    <h3 class="py-4">Name:  {{ profile.name }}
+    <span>
+      {% if request.user == user %}
+        <a href="{% url 'profile-edit' profile.pk %}" style="color: #333"><h5>Edit</h5>
+        </a>
+      {% endif %} 
+
+    </span>
+  </h3>
 
 
 
