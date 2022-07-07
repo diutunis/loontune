@@ -11,7 +11,7 @@ class PostForm(forms.ModelForm):
             'placeholder' : 'LOUDERR!!!'
     }))
 
-    image = forms.ImageField(required=False)
+    image = forms.ImageField(required=True)
 
 
 

@@ -1,5 +1,5 @@
 {% extends 'landing/base.html' %} {% load crispy_forms_tags %} {% block content %}
-<div class="container">
+<div class="container" style="background-color:powderblue;">
   <div class="row justify-content-center mt-3">
     <h5>POST!</h5>
   </div>
@@ -18,14 +18,16 @@
       <p><strong>{{ post.author }} </strong> {{ post.created_on }}</p></div>
       {% if post.image %}
 
-      <img width= 500px height= 500px src="{{ post.image.url }}", class="img-fluid" />
+
+      <img width = '500' , height= '500' , src="{{ post.image.url }}", class="img-fluid" />
 
       {% endif %}
      <!-- <a href="{% url 'post-detail' post.pk %}" class="stretched-link"> </a> -->
-      <p>{{ post.body }}</p>
-      <a href= {{ post.song }}>{{ post.song }}</a>
+      <div class="btn btn-light mt-3 col-md-5 col-sm-12 ">
+      <a href= {{ post.song }}>♬♫♪◖(●。●)◗♪♫♬!</a>
  
     </div>
+  </div>
     {% endfor %}
   </div>
   {% endblock content %}

@@ -9,19 +9,23 @@ import random
 
 
 class Post(models.Model) :
-    querystring = {"name":"{body}"}
+   
     headers = {
 	"X-RapidAPI-Key": "7d6f0e6ddcmsh07cf4610b0f633ap1657a2jsn77b8367a1023",
 	"X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
 }
     body = models.CharField(max_length= 6)
+    
+
+
     image = models.ImageField(upload_to='uploads/post_photos', blank=True, null=True)
     created_on = models.DateTimeField(default=timezone.now)
-    rand = random.randrange(110000, 112024, 1)
+    rand = random.randrange(1, 112024, 1)
+    querystring = {"name": "fuck"}
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     r = requests.get("https://spotify-scraper.p.rapidapi.com/v1/track/search", headers=headers, params=querystring)
-    song = r.json()['shareUrl']
+    song = r.json()
   
 
 class UserProfile(models.Model):
